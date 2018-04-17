@@ -1,0 +1,232 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7434,        222]
+NotebookOptionsPosition[      6870,        199]
+NotebookOutlinePosition[      7227,        215]
+CellTagsIndexPosition[      7184,        212]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"rannum", " ", "=", 
+  RowBox[{"Random", "[", 
+   RowBox[{"Integer", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "20"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+   "\"\<C:\\\\Users\\\\liao\\\\Documents\\\\rand.txt\>\"", ",", "rannum"}], 
+   "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"intergralUrl", " ", "=", " ", "\"\<\>\""}]}], "Input",
+ CellChangeTimes->{{3.7322609460632505`*^9, 3.732260972563547*^9}, {
+   3.7322612109305124`*^9, 3.732261227167096*^9}, {3.7322614320038304`*^9, 
+   3.7322614322608256`*^9}, {3.7322614797416296`*^9, 
+   3.7322614821575727`*^9}, {3.7325866387929325`*^9, 3.7325866631863503`*^9}, 
+   3.7325867578969126`*^9, {3.732586970372587*^9, 3.7325869727365327`*^9}, {
+   3.7325875099619584`*^9, 3.732587540160204*^9}, {3.73258824369669*^9, 
+   3.732588247336608*^9}, {3.732589240123474*^9, 3.732589277821517*^9}, {
+   3.732589325304302*^9, 3.7325893354090433`*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{{3.7322609661096506`*^9, 3.7322609925329885`*^9}, 
+   3.7322612280390778`*^9, {3.7322614331508074`*^9, 3.7322614461434803`*^9}, 
+   3.7325866518026285`*^9, 3.7325869732885113`*^9, {3.732587518134754*^9, 
+   3.7325875421781216`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\liao\\\\Documents\\\\rand.txt\"\>"], "Output",
+ CellChangeTimes->{{3.7322609661096506`*^9, 3.7322609925329885`*^9}, 
+   3.7322612280390778`*^9, {3.7322614331508074`*^9, 3.7322614461434803`*^9}, 
+   3.7325866518026285`*^9, 3.7325869732885113`*^9, {3.732587518134754*^9, 
+   3.7325875422053423`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox["\"\<2\>\"",
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.7322609661096506`*^9, 3.7322609925329885`*^9}, 
+   3.7322612280390778`*^9, {3.7322614331508074`*^9, 3.7322614461434803`*^9}, 
+   3.7325866518026285`*^9, 3.7325869732885113`*^9, {3.732587518134754*^9, 
+   3.732587542210145*^9}}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"obj", "=", 
+   RowBox[{"Import", "[", "\"\<./dispimage/ChannelAndField.txt\>\"", "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Stinngnum", "=", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{"obj", ",", "\"\<,\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Channel", "=", 
+  RowBox[{"Stinngnum", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}], "\n", 
+ RowBox[{"Field", "=", 
+  RowBox[{"Stinngnum", "[", 
+   RowBox[{"[", "2", "]"}], "]"}]}], "\n", 
+ RowBox[{"Method2", "=", 
+  RowBox[{"Stinngnum", "[", 
+   RowBox[{"[", "3", "]"}], "]"}]}], "\n", 
+ RowBox[{"Result", "=", 
+  RowBox[{"Stinngnum", "[", 
+   RowBox[{"[", "4", "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"integralURL", "=", 
+   RowBox[{
+   "\"\<http://192.168.2.1:3000/channels/\>\"", "<>", "Channel", "<>", 
+    "\"\</fields/\>\"", "<>", "Field", "<>", "\"\<.json?results=\>\"", "<>", 
+    "Result"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"JsonData", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"integralURL", ",", "\"\<JSON\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Allfeeds", "=", 
+   RowBox[{"\"\<feeds\>\"", "/.", "JsonData"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"fieldid", "=", 
+   RowBox[{"\"\<field\>\"", "<>", "Field"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"AllData", "=", 
+   RowBox[{
+    RowBox[{"fieldid", "/.", "Allfeeds"}], "//", "ToExpression"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"AllDatasize", "=", 
+   RowBox[{"Length", "[", "AllData", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"AllDataMean", "=", 
+   RowBox[{"Mean", "[", "AllData", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"AllDatacenter", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Max", "[", "AllData", "]"}], "+", 
+      RowBox[{"Min", "[", "AllData", "]"}]}], ")"}], "/", "2"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"model", "=", 
+    RowBox[{
+     RowBox[{"a", " ", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"b", " ", "x"}], "+", "c"}], "]"}]}], "+", "d"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fit", "=", 
+   RowBox[{"FindFit", "[", 
+    RowBox[{"AllData", ",", "model", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", "AllDatacenter"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"b", ",", 
+         RowBox[{"(", 
+          RowBox[{"2", " ", 
+           RowBox[{"Pi", "/", "1440"}]}], ")"}]}], "}"}], ",", "c", ",", 
+       RowBox[{"{", 
+        RowBox[{"d", ",", "AllDataMean"}], "}"}]}], "}"}], ",", "x"}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"P", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"model", "/.", "fit"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "AllDatasize"}], "}"}]}], "]"}], ",", 
+     RowBox[{"ListPlot", "[", 
+      RowBox[{
+       RowBox[{"{", "AllData", "}"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"FieldDirectory", "=", 
+   RowBox[{
+   "\"\<./dispimage/\>\"", "<>", "Channel", "<>", "\"\</\>\"", "<>", 
+    "Method2", "<>", "\"\</\>\"", "<>", "Result", "<>", "\"\</\>\""}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"DirectoryQ", "[", "FieldDirectory", "]"}], ",", "null", ",", 
+    RowBox[{"CreateDirectory", "[", "FieldDirectory", "]"}]}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{
+    "\"\<./dispimage/\>\"", "<>", "Channel", "<>", "\"\</\>\"", "<>", 
+     "Method2", "<>", "\"\</\>\"", "<>", "Result", "<>", "\"\</field\>\"", "<>",
+      "Field", "<>", "\"\<.png\>\""}], ",", "P"}], "]"}], 
+  ";"}], "\n", "Quit"}], "Input",
+ CellChangeTimes->{{3.7328457651477056`*^9, 3.7328457651507044`*^9}, {
+  3.732854517224363*^9, 3.7328545248821554`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.7328457498441005`*^9},
+ NumberMarks->False],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7328457487871943`*^9, 3.7328457488471537`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.732261274855886*^9, 3.7322612804207163`*^9}, {
+  3.7322613314264345`*^9, 3.732261353775837*^9}, {3.7322614128923597`*^9, 
+  3.73226142997589*^9}}]
+},
+WindowSize->{1095, 601},
+WindowMargins->{{112, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (2015\:5e743\:670824\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 991, 19, 92, "Input"],
+Cell[1574, 43, 280, 4, 31, "Output"],
+Cell[1857, 49, 331, 4, 31, "Output"],
+Cell[2191, 55, 407, 10, 45, "Output"]
+}, Open  ]],
+Cell[2613, 68, 3862, 117, 452, "Input"],
+Cell[6478, 187, 91, 2, 31, "Input"],
+Cell[6572, 191, 96, 1, 31, InheritFromParent],
+Cell[6671, 194, 195, 3, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
